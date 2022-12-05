@@ -1,0 +1,89 @@
+﻿@model AppUser
+
+@{
+    ViewData["Title"] = "Üye Ol";
+}
+
+<section class="min-vh-100 mb-8">
+    <div class="page-header align-items-start min-vh-50 pt-5 pb-11 m-3 border-radius-lg" style="background-image: url('/Admin/assets/img/curved-images/curved14.jpg');">
+        <span class="mask bg-gradient-dark opacity-6"></span>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 text-center mx-auto">
+                    <h1 class="text-white mb-2 mt-5">Hoşgeldiniz!</h1>
+                    @Html.Raw(TempData["mesaj"])
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row mt-lg-n10 mt-md-n11 mt-n10">
+            <div class="col-xl-4 col-lg-5 col-md-7 mx-auto">
+                <div class="card z-index-0">
+                    <div class="card-header text-center pt-4">
+                        <h5>Üye Ol</h5>
+                    </div>
+
+                    <div class="card-body">
+                        <form asp-action="Create" role="form text-left">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="mb-3">
+                                <label asp-for="Name" class="control-label"></label>
+                                <input asp-for="Name" placeholder="Adı" class="form-control" />
+                                <span asp-validation-for="Name" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Surname" class="control-label"></label>
+                                <input asp-for="Surname" placeholder="Soyadı" class="form-control" />
+                                <span asp-validation-for="Surname" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Email" class="control-label"></label>
+                                <input asp-for="Email" placeholder="Email" class="form-control" />
+                                <span asp-validation-for="Email" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Phone" class="control-label"></label>
+                                <input asp-for="Phone" placeholder="Tel" class="form-control" />
+                                <span asp-validation-for="Phone" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Username" class="control-label"></label>
+                                <input asp-for="Username" placeholder="Kullanıcı Adı" class="form-control" />
+                                <span asp-validation-for="Username" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="Password" class="control-label"></label>
+                                <input asp-for="Password" placeholder="Şifre" class="form-control" />
+                                <span asp-validation-for="Password" class="text-danger"></span>
+                            </div>
+                            <div class="mb-3">
+                                <label asp-for="confirmPassword" class="control-label"></label>
+                                <input asp-for="confirmPassword" placeholder="Şifre Tekrar" class="form-control" />
+                                <span asp-validation-for="confirmPassword" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="IsActive" /> @Html.DisplayNameFor(model => model.IsActive)
+                                </label>
+                            </div>
+                            <div class="form-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" asp-for="IsAdmin" /> @Html.DisplayNameFor(model => model.IsAdmin)
+                                </label>
+                            </div>
+
+                            <div class="text-center">
+                                <input type="submit" value="Üye Ol" class="btn bg-gradient-dark w-100 my-4 mb-2" />
+                            </div>
+                            <p class="text-sm mt-3 mb-0">Hesabınız var mı? <a href="/Login" class="text-dark font-weight-bolder">Giriş Yap</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

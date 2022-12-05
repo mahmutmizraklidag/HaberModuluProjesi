@@ -1,0 +1,73 @@
+﻿@model News
+
+@{
+    ViewData["Title"] = "Haber Detayı";
+}
+
+
+<div>
+    <a class="btn btn-warning" asp-action="Index"><i class="bi bi-arrow-left-circle"></i> HABER lİSTESİNE DÖN</a>
+</div>
+
+
+<section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-8">
+                <div class="portfolio-details-slider swiper">
+                    <div class="swiper-wrapper align-items-center">
+
+                        <div class="swiper-slide">
+                            <img src="/img/@Model.Image" alt="@Model.Title">
+                        </div>
+
+                        <div class="swiper-slide">
+                            <img src="/img/@Model.Image" alt="@Model.Title">
+                        </div>
+
+
+
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="portfolio-info">
+                    <h3>@Model.Title</h3>
+                    <ul>
+                        <li><strong>Kategori</strong> : @Model.Category.Name</li>
+                        <li><strong>Oluşturulma Tarihi</strong> : @Model.CreateDate</li>
+                        <li><strong>Güncel?</strong> : @if (Model.IsActive)
+                            {
+                    <label class="btn btn-success btn-sm"><i class="bi bi-check-lg"></i></label>
+                            }
+                            else
+                            {
+                    <label class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></label>
+                            }</li>
+                        <li><strong>Aktif?</strong> : @if (Model.IsUpToDate)
+                            {
+                        <label class="btn btn-success btn-sm"><i class="bi bi-check-lg"></i></label>
+                            }
+                            else
+                            {
+                        <label class="btn btn-danger btn-sm"><i class="bi bi-x-lg"></i></label>
+                            }</li>
+
+                    </ul>
+                </div>
+                <div class="portfolio-description">
+                    <h2>Açıklama:</h2>
+                    <p>
+                        @Model.Description
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
